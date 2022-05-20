@@ -25,7 +25,7 @@ pipeline {
         }
         stage("Archive") {
             steps {
-                archiveArtifacts artifacts: 'bank-microservice/target/*.jar', 
+                archiveArtifacts artifacts: 'transaction-microservice/target/*.jar', 
                 allowEmptyArchive: false,
                 caseSensitive: false,
                 fingerprint: true,
@@ -34,7 +34,7 @@ pipeline {
         }
         stage("Containerize") {
             steps {
-                powershell  "docker build -t klinsmoothstack/bank . --no-cache"
+                powershell  "docker build -t klinsmoothstack/transaction . --no-cache"
             }
         }
         stage("Deploy") {
@@ -42,7 +42,7 @@ pipeline {
                 s3Upload consoleLogLevel: 'INFO',
                 dontSetBuildResultOnFailure: false,
                 dontWaitForConcurrentBuildCompletion: false,
-                entries: [[bucket: AWS_BUCKET, excludedFile: '', flatten: false, gzipFiles: true, keepForever: false, managedArtifacts: false, noUploadOnFailure: true, selectedRegion: AWS_REGION, showDirectlyInBrowser: false, sourceFile: 'bank-microservice/target/*.jar', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'AWS S3', userMetadata: []
+                entries: [[bucket: AWS_BUCKET, excludedFile: '', flatten: false, gzipFiles: true, keepForever: false, managedArtifacts: false, noUploadOnFailure: true, selectedRegion: AWS_REGION, showDirectlyInBrowser: false, sourceFile: 'transaction-microservice/target/*.jar', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'AWS S3', userMetadata: []
             }
         }
     }
