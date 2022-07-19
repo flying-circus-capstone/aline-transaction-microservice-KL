@@ -6,7 +6,7 @@
 
     <groupId>com.aline</groupId>
     <artifactId>aline-transaction-microservice</artifactId>
-    <name>Transaction Microservice Root Project</name>
+    <name>Transaction Microservice KL</name>
     <version>0.1.0</version>
 
     <packaging>pom</packaging>
