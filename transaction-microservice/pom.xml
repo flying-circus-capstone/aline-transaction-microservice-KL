@@ -12,9 +12,9 @@
     <packaging>jar</packaging>
 
     <groupId>com.aline</groupId>
-    <artifactId>transaction-microservice</artifactId>
+    <artifactId>transaction-microservice-kl</artifactId>
     <version>0.1.0</version>
-    <name>Transaction Microservice</name>
+    <name>Transaction Microservice KL</name>
     <description>Handles all account transactions such as payments, credits, purchases, etc...</description>
     <properties>
         <java.version>1.8</java.version>

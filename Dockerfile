@@ -1,7 +1,7 @@
 FROM --platform=linux/amd64 amazoncorretto:11-alpine3.14
 
 RUN mkdir /myapp
-COPY /transaction-microservice/target/*.jar myapp
+COPY transaction-microservice/target/*.jar myapp
 
 # Install Bash
 RUN apk update && apk add bash
